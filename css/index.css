@@ -1,0 +1,74 @@
+/* FOLHAS DE ESTILO DO TEMA DO APP */
+
+/* CSS Reset */
+* {
+    box-sizing: border-box;
+}
+*:focus {
+    outline: none;
+}
+html, body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    font-family: sans-serif; /* Tipod de fonte do App */
+    font-size: 16px; /* Tamanho padrão da fonte do App */
+}
+body {
+    /* Imagem de fundo do App */
+    background: url('../img/background01.jpg') repeat fixed;
+}
+a {
+    color: steelblue; /* cor dos links */
+    text-decoration: none;
+}
+a:hover {
+    color: orangered; /* cor dos links em hover */
+}
+
+/* Estilos da barra superior */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #004466; /* cor de fundo da barra superior */
+}
+header a {
+    width: 4rem;
+    height: 4rem;
+    color: #e6f7ff; /* cor do texto da barra superior */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+}
+header a:hover {
+    color: #e6f7ff; /* cor do texto da barra superior */
+}
+header h1 {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: normal;
+    color: #e6f7ff; /* cor do texto da barra superior */
+}
+
+/* Estilos do menu principal */
+nav {
+    display: flex;
+    flex-direction: column;
+    background: #006699;
+}
+nav a {
+    color: #e6f7ff;
+    padding: .6rem 2rem .6rem 1rem;
+}
+nav a:hover {
+    color: #006699;
+    background: #e6f7ff;
+}
+nav hr {
+    border: 0;
+    margin: 0;
+    border-bottom: 1px dotted #e6f7ff;
+}
