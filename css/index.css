@@ -1,8 +1,21 @@
 /* FOLHAS DE ESTILO DO TEMA DO APP */
 
+/* Define as fontes do site - Google Fonts */
+@font-face {
+    src: url('../webfonts/MavenPro-Regular.ttf');
+    font-family: 'MavenPro-Regular';    
+    font-weight: normal;
+}
+@font-face {
+    src: url('../webfonts/Chilanka-Regular.ttf');
+    font-family: 'Chilanka-Regular';    
+    font-weight: normal;
+} 
+
 /* CSS Reset */
 * {
     box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 *:focus {
     outline: none;
@@ -12,7 +25,7 @@ html, body {
     margin: 0;
     width: 100%;
     height: 100%;
-    font-family: sans-serif; /* Tipod de fonte do App */
+    font-family: 'Chilanka-Regular'; /* Tipo de fonte do App */
     font-size: 16px; /* Tamanho padrão da fonte do App */
 }
 body {
@@ -32,40 +45,50 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #004466; /* cor de fundo da barra superior */
+    background: #330033; /* cor de fundo da barra superior */
+}
+header * {
+    font-size: 1.2rem; /* Tamanho do texto da barra superior */
 }
 header a {
-    width: 4rem;
-    height: 4rem;
-    color: #e6f7ff; /* cor do texto da barra superior */
+    width: 3.5rem;
+    height: 3.5rem;
+    color: #ffe6ff; /* cor do texto da barra superior */
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.5rem;
 }
 header a:hover {
-    color: #e6f7ff; /* cor do texto da barra superior */
+    color: #ffe6ff; /* cor do texto da barra superior */
 }
 header h1 {
     margin: 0;
-    font-size: 1.3rem;
     font-weight: normal;
-    color: #e6f7ff; /* cor do texto da barra superior */
+    color: #ffe6ff; /* cor do texto da barra superior */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Logotipo usando Font Awesome */
+header h1 i {
+    color: #330033; /* cor do ícone */
+    text-shadow: -1px -1px #ffe6ff, -1px 1px #ffe6ff, 1px -1px #ffe6ff, 1px 1px #ffe6ff; /* Borda do ícone */ 
 }
 
 /* Estilos do menu principal */
 nav {
     display: flex;
     flex-direction: column;
-    background: #006699;
+    background: #660066;
+    width: inherit;
 }
 nav a {
-    color: #e6f7ff;
-    padding: .6rem 2rem .6rem 1rem;
+    color: #ffe6ff;
+    padding: .7rem 2rem .7rem 1rem;
 }
 nav a:hover {
-    color: #006699;
-    background: #e6f7ff;
+    color: #660066;
+    background: #ffe6ff;
 }
 nav hr {
     border: 0;
