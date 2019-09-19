@@ -3,10 +3,27 @@
 // Tratamento das rotas
 function routing(){
     
-    console.log(' - Roteando...');
+    // Destino da rota
+    var href = $(this).attr('href');
 
+    // Target da rota
+    var target = $(this).attr('target');
 
+    var pagina = 'pages/' + href.substr(1) + '.html';
 
+    if(target == '_none')
+        return false;
+    else if(target == '_blank')
+        return true;
+    else {
+        toggleMenu();
+        //$('header').slideUp('fast');
+        $.get(pagina, function(htmlResposta){
+            $('main').html(htmlResposta);
+        });
+    }
+    //console.log(pagina);
 
-    return false;
+    // Retorna sem fazer nada
+    return false
 }

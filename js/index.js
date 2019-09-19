@@ -27,6 +27,11 @@ var app = {
 function runApp(){
     console.log(' - Tratando eventos...');
 
+    // Remove splash screen
+    setTimeout(function(){
+        $('#splash').fadeOut();
+    }, 500);
+
     // Monitorando o botão 'menu'
     $(document).on('click', '#menu', toggleMenu);
 
@@ -54,6 +59,7 @@ function toggleMenu(){
             $('nav').addClass('menuOn'); // Desliza menu para dentro da viewport 
         });
     }
+    return false;
 }
 
 // Executa o App
