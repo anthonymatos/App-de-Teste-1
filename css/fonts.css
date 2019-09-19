@@ -1,0 +1,11 @@
+/* Define as fontes do site - Google Fonts */
+@font-face {
+    src: url('../webfonts/MavenPro-Regular.ttf');
+    font-family: 'MavenPro-Regular';    
+    font-weight: normal;
+}
+@font-face {
+    src: url('../webfonts/Chilanka-Regular.ttf');
+    font-family: 'Chilanka-Regular';    
+    font-weight: normal;
+} 
