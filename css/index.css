@@ -1,5 +1,20 @@
 /* FOLHAS DE ESTILO DO TEMA DO APP */
 
+/* Variáveis do tema */
+:root {
+    /* Definição do tema */
+    --font-family-default: sans-serif; /* Família de fonte do App */
+    --font-size-default: 16px; /* Tamanho padrão da fonte do App */
+    --body-background: url('../img/background01.jpg') repeat fixed; /* Fundo do body */
+    --link-color-default: steelblue; /* Cor padrão dos links */
+    --link-color-hover-dafault: orangered; /* Cor padrão dos links com hover/touch */
+    --header-bg: #330033; /* Cor de fundo da barra superior */
+    --header-font-color: #ffe6ff; /* Cor do texto da barra superior */
+    --header-logo-border: -1px -1px #ffe6ff, -1px 1px #ffe6ff, 1px -1px #ffe6ff, 1px 1px #ffe6ff; /* Borda do ícone */ 
+    --nav-bg: #660066; /* Cor de fundo do menu */
+    --nav-font-color: #ffefff; /* Cor dos textos dos links do menu */
+}
+
 /* CSS Reset */
 * {
     box-sizing: border-box;
@@ -13,8 +28,8 @@ html, body {
     margin: 0;
     width: 100%;
     height: 100%;
-    font-family: sans-serif; /* Tipo de fonte do App */
-    font-size: 16px; /* Tamanho padrão da fonte do App */
+    font-family: var(--font-family-default);
+    font-size: var(--font-size-default);
     -webkit-touch-callout: none; /* Ajuste para telas touch */
     -webkit-text-size-adjust: none; /* Ajuste para telas touch */
     -webkit-user-select: none; /* Ajuste para telas touch */
@@ -22,14 +37,14 @@ html, body {
 }
 body {
     /* Imagem de fundo do App */
-    background: url('../img/background01.jpg') repeat fixed;
+    background: var(--body-background);
 }
 a {
-    color: steelblue; /* Cor dos links */
+    color: var(--link-color-default);
     text-decoration: none;
 }
 a:hover {
-    color: orangered; /* Cor dos links em hover */
+    color: var(--link-color-hover-default);
 }
 
 /* Estilos da barra superior */
@@ -37,7 +52,12 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #330033; /* Cor de fundo da barra superior */
+    background: var(--header-bg);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
 }
 header * {
     font-size: 1.2rem; /* Tamanho do texto da barra superior */
@@ -45,14 +65,14 @@ header * {
 header a {
     width: 3.5rem;
     height: 3.5rem;
-    color: #ffe6ff; /* Cor do texto da barra superior */
+    color: var(--header-font-color);
     display: flex;
     justify-content: center;
     align-items: center;
     transition: .5s;
 }
 header a:hover {
-    color: #ffe6ff; /* Mesma cor do texto da barra superior */
+    color: var(--header-font-color);
 }
 .rotateMenuBtn { /* Animação do botão do menu quando clicado */
     transform: rotate(-270deg);
@@ -60,34 +80,55 @@ header a:hover {
 header h1 {
     margin: 0;
     font-weight: normal;
-    color: #ffe6ff; /* Cor do texto da barra superior */
+    color: var(--header-font-color);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 /* Logotipo usando Font Awesome */
 header h1 i {
-    color: #330033; /* Cor do ícone */
-    text-shadow: -1px -1px #ffe6ff, -1px 1px #ffe6ff, 1px -1px #ffe6ff, 1px 1px #ffe6ff; /* Borda do ícone */ 
+    color: var(--header-bg);
+    text-shadow: var(--header-logo-border);
 }
 
 /* Estilos do menu principal */
 nav {
-    display: flex;
+    display: none;
     flex-direction: column;
-    background: #660066;
+    background: var(--nav-bg);
     width: inherit;
+    position: fixed;
+    top: 3.5rem;
+    left: -300px;
+    z-index: 100;
+    transition: .7s;
 }
 nav a {
-    color: #ffefff;
+    color: var(--nav-font-color);
     padding: .7rem 2rem .7rem 1rem;
 }
 nav a:hover {
-    color: #660066;
-    background: #ffefff;
+    color: var(--nav-bg);
+    background: var(--nav-font-color);
 }
 nav hr {
     border: 0;
     margin: 0;
-    border-bottom: 1px dotted #e6f7ff;
+    border-bottom: 1px dotted var(--nav-font-color);
+}
+/* Mostra o menu */
+.menuOn {
+    left: 0;
+}
+
+/* Fundo dos modais */
+.modal {
+    position: fixed;
+    top: 3.5rem;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 90;
+    display: none;
 }
