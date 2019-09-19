@@ -15,17 +15,21 @@ html, body {
     height: 100%;
     font-family: sans-serif; /* Tipo de fonte do App */
     font-size: 16px; /* Tamanho padrão da fonte do App */
+    -webkit-touch-callout: none; /* Ajuste para telas touch */
+    -webkit-text-size-adjust: none; /* Ajuste para telas touch */
+    -webkit-user-select: none; /* Ajuste para telas touch */
+    position: relative;
 }
 body {
     /* Imagem de fundo do App */
     background: url('../img/background01.jpg') repeat fixed;
 }
 a {
-    color: steelblue; /* cor dos links */
+    color: steelblue; /* Cor dos links */
     text-decoration: none;
 }
 a:hover {
-    color: orangered; /* cor dos links em hover */
+    color: orangered; /* Cor dos links em hover */
 }
 
 /* Estilos da barra superior */
@@ -33,7 +37,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #330033; /* cor de fundo da barra superior */
+    background: #330033; /* Cor de fundo da barra superior */
 }
 header * {
     font-size: 1.2rem; /* Tamanho do texto da barra superior */
@@ -41,25 +45,29 @@ header * {
 header a {
     width: 3.5rem;
     height: 3.5rem;
-    color: #ffe6ff; /* cor do texto da barra superior */
+    color: #ffe6ff; /* Cor do texto da barra superior */
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: .5s;
 }
 header a:hover {
-    color: #ffe6ff; /* cor do texto da barra superior */
+    color: #ffe6ff; /* Mesma cor do texto da barra superior */
+}
+.rotateMenuBtn { /* Animação do botão do menu quando clicado */
+    transform: rotate(-270deg);
 }
 header h1 {
     margin: 0;
     font-weight: normal;
-    color: #ffe6ff; /* cor do texto da barra superior */
+    color: #ffe6ff; /* Cor do texto da barra superior */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 /* Logotipo usando Font Awesome */
 header h1 i {
-    color: #330033; /* cor do ícone */
+    color: #330033; /* Cor do ícone */
     text-shadow: -1px -1px #ffe6ff, -1px 1px #ffe6ff, 1px -1px #ffe6ff, 1px 1px #ffe6ff; /* Borda do ícone */ 
 }
 
@@ -71,12 +79,12 @@ nav {
     width: inherit;
 }
 nav a {
-    color: #ffe6ff;
+    color: #ffefff;
     padding: .7rem 2rem .7rem 1rem;
 }
 nav a:hover {
     color: #660066;
-    background: #ffe6ff;
+    background: #ffefff;
 }
 nav hr {
     border: 0;
