@@ -74,7 +74,7 @@ header a {
 header a:hover {
     color: var(--header-font-color);
 }
-.rotateMenuBtn { /* Animação do botão do menu quando clicado */
+.rotateBtn { /* Animação do botão do menu quando clicado */
     transform: rotate(-270deg);
 }
 header h1 {
@@ -93,7 +93,7 @@ header h1 i {
 
 /* Estilos do menu principal */
 nav {
-    display: none;
+    display: flex;
     flex-direction: column;
     background: var(--nav-bg);
     width: inherit;
@@ -101,7 +101,7 @@ nav {
     top: 3.5rem;
     left: -300px;
     z-index: 100;
-    transition: .7s;
+    transition: .8s;
 }
 nav a {
     color: var(--nav-font-color);
@@ -131,4 +131,9 @@ nav hr {
     background: rgba(0,0,0,0.5);
     z-index: 90;
     display: none;
+}
+
+/* Bloco de conteúdo */
+main {
+    margin-top: 3.5rem;
 }
