@@ -1,10 +1,275 @@
+<style>
+/* FOLHAS DE ESTILO DA PÁGINA DE CONTATOS */
+
+#contatos {
+    padding: 0 1rem;
+}
+#contatos, #contatos label {
+    display: block;
+    width: 100%;
+}
+#contatos label {
+    padding-left: .5rem;
+    font-weight: bold;
+}
+#contatos input, #contatos textarea, #contatos button {
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    padding: .2rem .5rem;
+    margin-top: .3rem;
+    border-radius: .2rem;
+    border: 1px solid grey;
+}
+#contatos textarea {
+    height: 6rem;
+}
+#contatos button {
+    background: steelblue;
+    color: white;
+    cursor: pointer;
+}
+#contatos button:hover {
+    background: red;
+}
+#contatos button:disabled {
+    background: #bbb;
+    color: #666;
+    cursor: not-allowed;
+}
+@media (min-width:425px) {
+    #contatos button {
+        width: auto;
+        padding: .5rem 1rem;
+    }
+}
+
+/* CAIXA DE MENSAGENS DE ERRO */
+.errocaixa {
+    display: table;
+    background: #ffc;
+    color: red;
+    padding: 1rem 1rem 0 1rem;
+    border: 2px solid red;
+    border-radius: .3rem;
+    margin: auto;
+    font-size: 85%;
+}
+#errocaixa {
+    display: none;
+}
+#errofecha {
+    float: right;
+    margin: -.8rem -.5rem 1rem 1rem;
+    font-size: 1.5rem;
+    color: #444;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#feedback {
+    display: none;
+    padding: 0 1rem;
+}
+
+.ajudaBtn {
+    display: inline-block;
+    padding: .05rem .3rem;
+    background: #ff0;
+    color: #800;
+    border-radius: 50%;
+    cursor: help;
+}
+
+.ajudaMsg {
+    display: none;
+    padding-left: 1.5rem;
+    font-style: italic;
+    color: orange;
+}
+
+.hidden {
+    display: none !important;
+}
+</style>
+
 <h2>Faça Contato</h2>
--x-x-x-x-x-x-x-x-x-
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet egestas risus. Curabitur lacinia turpis ut metus bibendum sagittis. Cras viverra arcu quis justo ultricies iaculis. Donec tincidunt turpis sed felis ullamcorper convallis. Maecenas ante ligula, pellentesque sit amet felis ut, laoreet congue metus. Mauris ullamcorper magna justo, et fermentum massa lacinia et. Proin efficitur finibus felis, ut ultrices neque egestas ut. Donec enim odio, mattis at ultrices nec, hendrerit et sapien. Curabitur euismod facilisis lectus, vitae scelerisque metus eleifend ut. Maecenas interdum dui ultricies ex suscipit dignissim. Proin in hendrerit erat.</p>
-<a href="http://luferat.net">Site do Fessô Luferat</a>
-<p>Sed et mollis justo. Curabitur pretium purus et sollicitudin condimentum. Phasellus in mi nulla. Morbi aliquet turpis mauris, sodales faucibus risus semper in. Nunc et scelerisque justo. Etiam cursus est at neque bibendum, sed ornare urna malesuada. Nulla eget malesuada nisi.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet egestas risus. Curabitur lacinia turpis ut metus bibendum sagittis. Cras viverra arcu quis justo ultricies iaculis. Donec tincidunt turpis sed felis ullamcorper convallis. Maecenas ante ligula, pellentesque sit amet felis ut, laoreet congue metus. Mauris ullamcorper magna justo, et fermentum massa lacinia et. Proin efficitur finibus felis, ut ultrices neque egestas ut. Donec enim odio, mattis at ultrices nec, hendrerit et sapien. Curabitur euismod facilisis lectus, vitae scelerisque metus eleifend ut. Maecenas interdum dui ultricies ex suscipit dignissim. Proin in hendrerit erat.</p>
-<p>Sed et mollis justo. Curabitur pretium purus et sollicitudin condimentum. Phasellus in mi nulla. Morbi aliquet turpis mauris, sodales faucibus risus semper in. Nunc et scelerisque justo. Etiam cursus est at neque bibendum, sed ornare urna malesuada. Nulla eget malesuada nisi.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet egestas risus. Curabitur lacinia turpis ut metus bibendum sagittis. Cras viverra arcu quis justo ultricies iaculis. Donec tincidunt turpis sed felis ullamcorper convallis. Maecenas ante ligula, pellentesque sit amet felis ut, laoreet congue metus. Mauris ullamcorper magna justo, et fermentum massa lacinia et. Proin efficitur finibus felis, ut ultrices neque egestas ut. Donec enim odio, mattis at ultrices nec, hendrerit et sapien. Curabitur euismod facilisis lectus, vitae scelerisque metus eleifend ut. Maecenas interdum dui ultricies ex suscipit dignissim. Proin in hendrerit erat.</p>
-<p>Sed et mollis justo. Curabitur pretium purus et sollicitudin condimentum. Phasellus in mi nulla. Morbi aliquet turpis mauris, sodales faucibus risus semper in. Nunc et scelerisque justo. Etiam cursus est at neque bibendum, sed ornare urna malesuada. Nulla eget malesuada nisi.</p>
--x-x-x-x-x-x-x-x-x-
+
+<div id="feedback"></div>
+
+<form action="" target="_blank" method="post" name="contatos" id="contatos">
+
+    <p>Preencha o formulário abaixo para entrar em contato conosco.</p>
+    <p class="text-red text-center"><small>Todos os campos devem ser preenchidos.</small></p>
+
+    <!-- Mensagens de erro -->
+    <div id="errocaixa">
+        <div class="errocaixa">
+            <span id="errofecha">&times;</span>
+            <div id="erromsg"></div>
+        </div>
+    </div>
+
+    <p>
+        <label for="contato_nome">Seu nome: <small class="ajudaBtn" data-target="ajudaNome">?</small></label>
+        <small class="ajudaMsg" id="ajudaNome">Escreva seu nome completo sem abreviações.</small>
+        <input type="text" name="contato_nome" id="contato_nome" placeholder="Seu nome completo.">
+    </p>
+    <p>
+        <label for="contato_email">Seu e-mail: <small class="ajudaBtn" data-target="ajudaEmail">?</small></label></label>
+        <small class="ajudaMsg" id="ajudaEmail">Seu endereço de e-mail principal ou um que você sempre usa.</small>
+        <input type="text" name="contato_email" id="contato_email" placeholder="Seu endereço de e-mail.">
+    </p>
+    <p>
+        <label for="contato_assunto">Assunto: <small class="ajudaBtn" data-target="ajudaAssunto">?</small></label></label>
+        <small class="ajudaMsg" id="ajudaAssunto">Um assunto resumido da mensagem que vai nos enviar.</small>
+        <input type="text" name="contato_assunto" id="contato_assunto" placeholder="Assunto do contato.">
+    </p>
+    <p>
+        <label for="contato_mensagem">Mensagem: <small class="ajudaBtn" data-target="ajudaMensagem">?</small></label></label>
+        <small class="ajudaMsg" id="ajudaMensagem">Sua mensagem com detalhes.</small>
+        <textarea name="contato_mensagem" id="contato_mensagem" placeholder="Escreva sua mensagem."></textarea>
+    </p>
+    <p>
+        <button type="submit" name="contato_enviar" id="contato_enviar" value="Enviado">Enviar mensagem</button>
+    </p>
+</form>
+
+<!-- Modal com spinner -->
+<div id="spinner">
+    <div id="spin">
+        <img src="img/spinner01.gif" alt="Aguarde...">
+    </div>
+</div>
+
+<script>
+// Define aplicativo principal
+function startApp() {
+
+// Monitora o formulário '#contatos', aguardando um envio (submit)
+$(document).on('submit', '#contatos', function(){
+
+    // Desabilita botão de envio para evitar cliques duplos
+    $('#contato_enviar').attr("disabled", true);
+
+    // Variáveis usadas no programa
+    var erro = '';
+    var out = '';
+
+    // Obtendo dados dos campos do formulário e sanitizando
+    var nome = sanitiza($('#contato_nome').val());
+    var email = sanitiza($('#contato_email').val());
+    var assunto = sanitiza($('#contato_assunto').val());
+    var mensagem = sanitiza($('#contato_mensagem').val());
+
+    // Atualizando formulário com valore já sanitizados
+    $('#contato_nome').val(nome);
+    $('#contato_email').val(email);
+    $('#contato_assunto').val(assunto);
+    $('#contato_mensagem').val(mensagem);
+
+    // Validando nome que deve ter 3 ou mais letras e espaços
+    if (nome.length < 3) {
+        erro += '<li>Seu nome está muito curto.</li>';
+    } else if (!soLetras(nome)) {
+        erro += '<li>Seu nome tem caracteres inválidos.</li>';
+    }
+
+    // Validando e-mail que deve seguir o formato padrão
+    if (email.indexOf('@') < 1) {
+        erro += '<li>Seu e-mail não é válido.</li>';
+    } else if (!isMail(email)) {
+        erro += '<li>Seu e-mail não é válido.</li>';
+    }
+
+    // Validando assunto com pelo menos 5 caracteres
+    if(assunto.length < 5){
+        erro += '<li>O assunto está muito curto.</li>';
+    };
+
+    // Validando mensagem com pelo menos 5 caracteres
+    if(mensagem.length < 5){
+        erro += '<li>A mesagem está muito curta.</li>';
+    };
+
+    // Se não ocorreram erros no preenchimento...
+    if(erro == '') {
+        
+        // Enviando formulário para o Firestore
+        $firebase.db.collection("contatos").add({
+            data: agora(),
+            nome : nome,
+            email : email,
+            assunto : assunto,
+            mensagem : mensagem,
+            status : 'recebido'
+        })
+
+        // Se deu certo
+        .then(function(docRef) {
+            // Quebra o nome em um array (nomes[0], nomes[1], nomes[2]...)
+            var nomes = nome.split(' ');
+            // nomes[0] contém o primeiro nome sempre
+            out = `<h3>Olá ${nomes[0]}!</h3>
+<blockquote>Seu contato foi enviado para a equipe do site.</blockquote>
+<p><i>Obrigado...</i></p>
+            `;
+            $('#feedback').html(out); // Escreve a mensagem na DIV
+            $('#contatos').hide('fast'); // Oculta o formulário
+            $('#feedback').show('fast'); // Mostra a DVI
+            $('#spinner').css('visibility','hidden'); // Oculta o modal spinner
+        })
+
+        // Se deu errado
+        .catch(function(error) {
+            // Se não retornou com 'sucesso', exibe erro.
+            out = `<big><strong>Oooops!</strong></big>
+<p>Ocorreram erros que impedem o envio do contato.</p>
+<ul><li>Erro interno do servidor.</li></ul>
+<p>A equipe do site já foi avisada deste erro e está verificando.</p>
+<p>Por favor, tente novamente mais tarde...</p>
+            `;
+            $('#erromsg').html(out); // Escrevo a mensagem na DIV
+            $('#errocaixa').show('fast'); // Mostro a DVI
+            $('#spinner').css('visibility','hidden'); // Oculta o modal spinner
+        });
+
+    // Se ocorreram erros no preenchimento...
+    } else {
+        // Formata mensagem de erro a ser exibida
+        out = `
+<big><b>Oooops!</b></big>
+<p>Ocorreram erros que impedem o envio do seu contato:</p>
+<ul>${erro}</ul>
+<p>Por favor, verifique o formulário e tente enviar novamente.</p>
+        `;
+        $('#erromsg').html(out); // Escreve mensagem de erro no documento
+        $('#errocaixa').show('fast'); // Exibe a mensagem de erro
+    }
+
+    // Reabilita botão de envio
+    $('#contato_enviar').attr("disabled", false);
+
+    // Nunca enviar o form pelo HTML se o JavaScript está ativo
+    return false;
+});
+
+// Fecha caixa de erro ao clicar nela (ou no botão 'times')
+$(document).on('click', '#errocaixa', function(){
+    $(this).hide('fast');
+});
+
+// Monitora, exibe e coluta a ajuda dos campos
+$(document).on('click', '.ajudaBtn', function(){
+    // Obtém atributo extra de cada botão, que aponta para o texto da ajuda correspondente
+    var emQuem = $(this).attr('data-target');
+
+    // Mostra/oculta ajuda do campo
+    $('#'+emQuem).toggle('fast');
+});
+
+}
+
+// Executar aplicativo principal
+startApp();
+</script>

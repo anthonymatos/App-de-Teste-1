@@ -16,7 +16,7 @@ function routing(){
     else if(target == '_blank')
         return true;
     else {
-        toggleMenu();
+        menuOff();
         //$('header').slideUp('fast');
         $.get(pagina, function(htmlResposta){
             $('main').html(htmlResposta);
