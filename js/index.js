@@ -33,7 +33,6 @@ var app = {
 
     // Prepara e executa o app que está na função 'runApp()'
     run: function(){
-        console.log('3) Executando o App...');
 
         // Aplicar tema pré-configurado
         $('main').attr('class', conf.get('tema'));

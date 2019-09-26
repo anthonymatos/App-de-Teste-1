@@ -1,0 +1,16 @@
+26/09/2019
+
+	LINGUAGEM DE SCRIPTS PARA WEB
+	ATIVIDADE PRÁTICA COMPLEMENTAR --> DESAFIO
+	
+Agora de nossa "One Page Application" de testes está com a base construída, crie um novo projeto temático com base nela:
+
+	1) Defina um tema, assunto, objetivo para a aplicação
+		--> Sugestão para um tema de cunho social
+		 
+	2) Defina o tema visual da aplicação:
+		--> Cores, fontes, tamanhos, fundo, etc.
+		--> Sugestão sobre fontes: https://fonts.google.com/
+		--> Sugestão sobre cores: https://www.w3schools.com/colors/colors_picker.asp
+	
+	3) Escreva o conteúdo das pages e melhore o visual delas.
