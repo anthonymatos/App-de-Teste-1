@@ -1,177 +1,188 @@
 /* FOLHAS DE ESTILO DO TEMA DO APP */
 
-/* Variáveis do tema */
+/* Variáveis de controle do tema  */
 :root {
-    /* Definição do tema */
-    --font-family-default: sans-serif; /* Família de fonte do App */
-    --font-size-default: 16px; /* Tamanho padrão da fonte do App */
-    --body-background: url('../img/background01.jpg') repeat fixed; /* Fundo do body */
-    --link-color-default: steelblue; /* Cor padrão dos links */
-    --link-color-hover-dafault: orangered; /* Cor padrão dos links com hover/touch */
-    --header-bg: #330033; /* Cor de fundo da barra superior */
-    --header-font-color: #ffe6ff; /* Cor do texto da barra superior */
-    --header-logo-border: -1px -1px #ffe6ff, -1px 1px #ffe6ff, 1px -1px #ffe6ff, 1px 1px #ffe6ff; /* Borda do ícone */ 
-    --nav-bg: #660066; /* Cor de fundo do menu */
-    --nav-font-color: #ffefff; /* Cor dos textos dos links do menu */
+    --font-face-default: sans-serif; /* Fonte padrão do app */
+    --font-size-default: 16px; /* Tamanho da fonte não menor 12px */
+    --font-color: #444; /* Cor dos textos */
+    --body-bg: url('../img/backrground03.jpg') fixed #ddd; /* Imagem ou cor de fundo */
+    --link-color: rgb(70, 130, 180); /* Cor padrão dos links */
+    --link-color-hover: rgb(255, 69, 0); /* Cor dos links com 'hover' */
+    --header-bg: #00465c; /* Cor do fundo do cabeçalho */
+    --header-font-color: #fff; /* Cor do título do cabeçalho */
+    --header-link-font-color: #c7e2eb; /* Cor dos links do cabeçalho */
+    --menu-bg-color: #006280; /* cor de fundo do menu */
+    --menu-font-color: #eee; /* Cor do texto do menu */
+    --menu-bg-color-hover: #ddd; /* Cor do fundo do menu em hover/click/touch */
+    --menu-font-color-hover: #006280; /* Cor do texto do menu em hover/click/touch */
+    --menu-hr: 1px dotted #ddd; /* Estilo de linha do separador do menu */
+    --main-bg: rgba(255, 255, 255, .7); /* Cor de fundo do conteúdo, com transparência */
+
+    /* Splash Screen */
+    --splash-color: #000;
+    --splash-logo-bg-color: #fff;
+    --splash-logo-color: orangered;
+
+    /* Logo com font Awesome */
+    --logo-border: -1px -1px #fff, -1px 1px #fff, 1px -1px #fff, 1px 1px #fff; /* Borda do logo */
+    --logo-color: #00465c; /* Cor do logo */
+
+    /* Tema escuro */
+    --main-bg-dark: rgba(0,0,0,.8);
+    --font-color-dark: #eee;
 }
 
-/* CSS Reset */
+/* CSS reset */
 * {
     box-sizing: border-box;
-    -webkit-tap-highlight-color: rgba(0,0,0,0); /* Ajuste para telas touch */
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* remove (de)efeito no fundo dos links ao 'tocar' */
 }
 *:focus {
     outline: none;
 }
 html, body {
+    font-family: var(--font-face-default); 
+    font-size: var(--font-size-default);
     padding: 0;
+    padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-right, 0px);
     margin: 0;
     width: 100%;
     height: 100%;
-    font-family: var(--font-family-default);
-    font-size: var(--font-size-default);
-    -webkit-touch-callout: none; /* Ajuste para telas touch */
-    -webkit-text-size-adjust: none; /* Ajuste para telas touch */
-    -webkit-user-select: none; /* Ajuste para telas touch */
     position: relative;
 }
 body {
-    /* Imagem de fundo do App */
-    background: var(--body-background);
+    background: var(--body-bg); 
+    color: var(--font-color); 
 }
 a {
-    color: var(--link-color-default);
+    color: var(--link-color);
     text-decoration: none;
 }
 a:hover {
-    color: var(--link-color-hover-default);
+    color: var(--link-color-hover);
 }
 
-/* Splash Screen */
-#splash {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+/* Toda a página */
+#wrap {
     height: 100%;
-    background: #330033;
-    z-index: 1000;
+    overflow: auto;
     display: flex;
-    justify-content: center;
-    align-items: center;
-}
-#splash > div {
-    background: #ffefff;
-    display: table;
-    color: #330033;
-    padding: 2rem;
-    border-radius: 1rem;
-    text-align: center;
-}
-#splash i {
-    font-size: 8rem;
-}
-#splash > div > div {
-    margin-top: .5rem;
+    flex-direction: column;
 }
 
-/* Estilos da barra superior */
+/* Estilos do header */
 header {
+    background: var(--header-bg);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: var(--header-bg);
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 100;
     width: 100%;
+    z-index: 100;
 }
 header * {
-    font-size: 1.2rem; /* Tamanho do texto da barra superior */
+    font-size: 1.2rem;
+}
+header h1 {
+    color: var(--header-font-color);
+    margin: 0;
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+header h1 i { /* Estilos do logo (usando ícone da Font Awesome) */
+    text-shadow: var(--logo-border);
+    color: var(--logo-color);
+    margin-right: .5rem;
 }
 header a {
-    width: 3.5rem;
+    color: var(--header-link-font-color);
+    display: block;
     height: 3.5rem;
-    color: var(--header-font-color);
+    width: 3.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: .5s;
+    border-radius: 50%;
 }
 header a:hover {
-    color: var(--header-font-color);
+    color: #c7e2eb; /* Cor dos links do cabeçalho em hover */
 }
-.rotateBtn { /* Animação do botão do menu quando clicado */
-    transform: rotate(-270deg);
-}
-header h1 {
-    margin: 0;
-    font-weight: normal;
-    color: var(--header-font-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-/* Logotipo usando Font Awesome */
-header h1 i {
-    color: var(--header-bg);
-    text-shadow: var(--header-logo-border);
-}
-
-#userPhoto img, #userProfile img {
-    width: 3rem;
-    height: 3rem;
+#headerUser img {
+    width: 2.5rem;
+    height: auto;
     border-radius: 50%;
 }
 
-/* Estilos do menu principal */
+/* Anima botão do menu */
+.rotateMenuBtn {
+    transform: rotate(-270deg);
+}
+
+/* Meu principal */
 nav {
+    background: var(--menu-bg-color);
     display: flex;
-    flex-direction: column;
-    background: var(--nav-bg);
-    width: inherit;
+    flex-direction: column;    
     position: fixed;
-    top: 3.5rem;
-    left: -300px;
     z-index: 100;
-    transition: .8s;
+    top: 3.5rem;
+    left: -468px; /* Esconde menu na inicialização do App */
 }
 nav a {
-    color: var(--nav-font-color);
-    padding: .7rem 2rem .7rem 1rem;
+    color: var(--menu-font-color);
+    padding: .7rem 1.5rem .7rem 1rem;
 }
 nav a:hover {
-    color: var(--nav-bg);
-    background: var(--nav-font-color);
+    background: var(--menu-bg-color-hover);
+    color: var(--menu-font-color-hover);
 }
 nav hr {
     border: 0;
     margin: 0;
-    border-bottom: 1px dotted var(--nav-font-color);
+    border-bottom: var(--menu-hr);
 }
-/* Mostra o menu */
-.menuOn {
-    left: 0;
-}
-#wrapMenu {
-    display: none;
-}
-#userProfileBox {
-    display: none;
-}
-#userProfile {
+#menuProfile a {
     display: flex;
     align-items: center;
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+    padding-left: 0.5rem;
 }
-#userProfile img {
-    margin-right: .5rem;
+#menuProfile img {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    margin: .5rem;
+}
+#menuProfile, #menuLogout {
+    display: none;
 }
 
-/* Fundo dos modais */
+/* Animação do menu principal */
+.slideOn {
+    animation: slideOn 0.5s forwards;
+}
+.slideOff {
+    animation: slideOff 1s forwards;
+}
+@keyframes slideOn {
+    0% { left: -468px; }
+    100% { left: 0; }
+}
+@keyframes slideOff {
+    0% { left: 0; }
+    100% { left: -468px; }
+}
+
+/* Modais */
 .modal {
     position: fixed;
-    top: 3.5rem;
+    top: 0;
     left: 0;
     width: 100%;
     height: 100%;
@@ -180,38 +191,106 @@ nav hr {
     display: none;
 }
 
-/* Tema claro */
-.light {
-    background: rgba(255,255,255,.5);
-    color: #444;
-}
-/* Tema escuro */
-.dark {
-    background: rgba(0,0,0,0.8);
-    color: #eee;
-}
-
-
-/* Bloco de conteúdo */
+/* conteúdo da página */
 main {
-    margin-top: 3.5rem;
+    padding-top: 3.5rem;
+    flex-grow: 1;
+    background: var(--main-bg);
+}
+main .pageWrap {
+    padding: 0 1rem 1rem 1rem;
+}
+main .pageWrap > h3 {
+    margin-top: .5rem;
 }
 
-/* Spinner * processando... */
-#spinner {
-    background: rgba(0,0,0,.5);
+/* Splash Screen */
+#splashScreen {
+    background: var(--splash-color);
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 1000;
     width: 100%;
     height: 100%;
-    z-index: 10;
     display: flex;
     justify-content: center;
     align-items: center;
-    visibility: hidden; 
 }
-#spin {
-    background: #fff;
-    border-radius: 1rem;
+#splashScreen div {
+    background: var(--splash-logo-bg-color);
+    padding: 1rem;
+    border-radius: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#splashScreen i {
+    font-size: 8rem;
+    color: var(--splash-logo-color);
+    text-shadow: -2px -2px var(--splash-color), -2px 2px var(--splash-color), 2px -2px var(--splash-color), 2px 2px var(--splash-color);
+}
+#splashScreen span {
+    font-size: 1.5rem;
+    padding-top: 1rem;
+}
+
+/* Barra superior das páginas */
+main > h2 {
+    margin: 0;
+    background: var(--header-bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--header-font-color);
+    height: 3rem;
+    padding: 0 1rem;
+    font-size: var(--font-size-default);
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+main > h2 a, main > h2 a:hover {
+    color: var(--header-font-color);
+    font-weight: normal;
+}
+
+/* Tema claro */
+.light {
+    background: var(--main-bg);
+    color: var(--font-color);
+}
+
+/* Tema escuro */
+.dark {
+    background: var(--main-bg-dark);
+    color: var(--font-color-dark);
+}
+
+/* Estilos genéricos */
+.text-center {
+    text-align: center;
+}
+.btnDefault {
+    margin: auto;
+    padding: .5rem 1rem;
+    background: linear-gradient(#00aaff, #002233);
+    color: #fff;
+    font-family: inherit;
+    font-size: inherit;
+    border: 0;
+    border-radius: .3rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+.btnDefault img {
+    width: 1.4rem;
+    height: auto;
+    margin-right: .5rem;
+}
+.btnDefault:hover {
+    background: linear-gradient(#cc0000, #330000);
+    color: #fff;
 }

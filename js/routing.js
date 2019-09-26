@@ -1,29 +1,23 @@
-/* TRATAMENTO DAS ROTAS DO APP */
+/* TRATAMENTO DE ROTAS E LINKS DO APP */
 
-// Tratamento das rotas
 function routing(){
-    
-    // Destino da rota
-    var href = $(this).attr('href');
 
-    // Target da rota
+    // Onde cliquei
+    var href = $(this).attr('href');
     var target = $(this).attr('target');
 
-    var pagina = 'pages/' + href.substr(1) + '.html';
+    //console.log(href, ' / ', target);
 
-    if(target == '_none')
-        return false;
-    else if(target == '_blank')
-        return true;
+    if(target == '_blank') return true;
+    else if(target == '_none') return false;
     else {
-        menuOff();
-        //$('header').slideUp('fast');
-        $.get(pagina, function(htmlResposta){
-            $('main').html(htmlResposta);
+        var page = 'html/' + href.substr(1) + '.html';
+        //console.log(page);
+        $.get(page, function(dataReturn){
+            $('main').html(dataReturn);
+            menuOff();
         });
     }
-    //console.log(pagina);
 
-    // Retorna sem fazer nada
-    return false
+    return false;
 }
