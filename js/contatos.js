@@ -76,7 +76,7 @@ function processaForm(){
         .then(function(docRef) { // Se gravou no Firebase
             msg = `
 <h3>Olá ${nome[0]}!</h3>
-<p>Seu contato foi enviado para a equipe do NoXiXiNarua.</p>
+<p>Seu contato foi enviado para a equipe do App de Teste.</p>
 Obrigado...
             `;
             $('#msgFb').html(msg);
@@ -89,7 +89,7 @@ Obrigado...
 <h3>Ooooops!</h3>
 <p>Ocorreram erros ao tentar enviar o seu contato:</p>
 <ul><li>Falha no servidor remoto.</li>
-<p>A equipe técnica do NoXiXiNarua já foi avisada da falha.</p>
+<p>A equipe técnica do App de Teste já foi avisada da falha.</p>
 Você pode tentar enviar o formulário novamente, agora ou mais tarde.
             `;
             $('#msgErro').html(msg);
