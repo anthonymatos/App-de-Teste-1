@@ -1,4 +1,4 @@
-/* CONFIGURAÇÕES DO APLICATIVO */
+/* CONFIGURAÇÕES INICIAIS DO APLICATIVO */
 
 // Consigurações da conexão com o Google Firebase
 var firebaseConfig = {

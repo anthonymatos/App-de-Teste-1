@@ -1,6 +1,4 @@
 /* FUNÇÕES DO TEMA E DE USO GERAL DO APP */
- 
-var $FB = {}; // Superglobal do Firebase
 
 // Construtor de configuração do App
 var conf = {
@@ -27,7 +25,7 @@ var conf = {
         this.conn().setItem(localStorageKeyName, JSON.stringify(config));
     },
 
-    // Retorna para as configurações iniciais
+    // Retorna para as configurações iniciais do App
     reset : function(){
         this.conn().removeItem(localStorageKeyName);
         this.conn().setItem(localStorageKeyName, JSON.stringify(initialConfig));

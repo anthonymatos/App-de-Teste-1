@@ -4,14 +4,11 @@
 var app = {
     // Inicialização do jQuery, Firebase e Cordova (em breve)
     start: function(){
-        console.log('1) Inicializando App...');
-
         $(document).ready(this.config); // Inicializando jQuery
     },
 
     // Configura o app
     config: function(){
-        console.log('2) Configurando App...');
 
         // Configuração inicial local do App
         var config = conf.getAll(); // Obtém configurações

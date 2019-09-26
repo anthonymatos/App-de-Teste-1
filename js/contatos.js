@@ -37,28 +37,18 @@ function processaForm(){
     $('#mensagem').val(formMensagem);
 
     // Validando nome
-    if (formNome.length < 3) {
-        erro += '<li>Seu nome está muito curto.</li>';
-    } else if (!soLetras(formNome)) {
-        erro += '<li>Seu nome tem caracteres inválidos.</li>';
-    }
+    if (formNome.length < 3) erro += '<li>Seu nome está muito curto.</li>';
+    else if (!soLetras(formNome)) erro += '<li>Seu nome tem caracteres inválidos.</li>';
 
     // Validando e-mail
-    if (formEmail.indexOf('@') < 1) {
-        erro += '<li>Seu e-mail não é válido.</li>';
-    } else if (!isMail(formEmail)) {
-        erro += '<li>Seu e-mail não é válido.</li>';
-    }
+    if (formEmail.indexOf('@') < 1) erro += '<li>Seu e-mail não é válido.</li>';
+    else if (!isMail(formEmail)) erro += '<li>Seu e-mail não é válido.</li>';
 
     // Validando assunto
-    if (formAssunto.length < 5) {
-        erro += '<li>O assunto está muito curto.</li>';
-    }
-    
+    if (formAssunto.length < 5) erro += '<li>O assunto está muito curto.</li>';
+
     // Validando mensagem
-    if (formMensagem.length < 5) {
-        erro += '<li>A mensagem está muito curta.</li>';
-    }
+    if (formMensagem.length < 5) erro += '<li>A mensagem está muito curta.</li>';
 
     // Se não ocorreram erros...
     if (erro == '') {

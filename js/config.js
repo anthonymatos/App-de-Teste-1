@@ -44,6 +44,6 @@ if(user.email !== undefined){
 // Troca tema
 function mudaTema(){
     var tema = $(this).val(); // Obtém o valor do tema selecionado
-    $('main').attr('class', tema); // Aplica a classe do tema selecionado
+    $('main').attr('class', tema); // Aplica a classe do tema selecionado na tag 'main'
     conf.set('tema', tema); // Altera o tema na configuração
 }
