@@ -35,7 +35,7 @@ var conf = {
     }
 }
 
-// 'Control' do menu principal
+// 'Toggle' do menu principal
 function toggleMenu(){
     if($('nav').attr('class') == 'slideOn'){ // Se o menu está aparecendo...
         menuOff(); // Ocuta
@@ -62,7 +62,7 @@ function menuOff(){
     });
 }
 
-// Login de usuário pelo Firebase Auth
+// Login de usuário pelo Firebase Auth com redirect
 function loginUser(){
     firebase.auth().signInWithRedirect(provider1);
 }
@@ -70,7 +70,7 @@ function loginUser(){
 // Logout de usuário pelo firebase Auth
 function logoutUser(){
     firebase.auth().signOut();
-    history.go(0);
+    history.go(0); // Recarrega o App
 }
 
 // Mostra no tema quando usuário não está logado
@@ -158,4 +158,41 @@ function isMail(texto) {
 		return true;
 	}
 	return false;
+}
+
+// Tratamento das rotas e links do APP
+function routing(){
+
+    // Obtém o destino da rota
+    var href = $(this).attr('href');
+
+    // Obtém o tipo de rota
+    var target = $(this).attr('target');
+
+    // Se é uma rota externa, executa o link
+    if(target == '_blank') return true;
+
+    // Se é um botão de ação, não executa nada
+    else if(target == '_none') return false;
+
+    // Se é uma rota interna, executa ela
+    else {
+
+        // Prepara o caminho para o arquivo HTML
+        var page = 'html/' + href.substr(1) + '.html';
+        
+        // Carrega a página usando Ajax
+        $.get(page, function(dataReturn){
+
+            // Exibe o conteúdo na tag 'main'
+            $('main').html(dataReturn);
+
+            // Oculta o menu principal
+            menuOff();
+
+        });
+    }
+
+    // Por padrão, links não fazem nada
+    return false;
 }

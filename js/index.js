@@ -1,4 +1,4 @@
-/* SCRIPTS DO TEMA */
+/* SCRIPTS DO TEMA / APP */
  
 /* Constructor - Comente ou remova as linhas 'console.log' quando o App estiver pronto! */
 var app = {

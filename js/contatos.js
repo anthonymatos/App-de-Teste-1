@@ -1,3 +1,5 @@
+/* JAVASCRIPTS DE 'contatos.html' */
+
 // Oculta barra superior
 $('header').slideUp('fast');
 
