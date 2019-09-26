@@ -38,7 +38,7 @@ if(user.email !== undefined){
     $('#confInOut').html('<img src="img/googleicon.png" alt="Entrar pelo Google"> Login / Entrar');
     
 }
-
+ 
 // Troca tema
 function mudaTema(){
     var tema = $(this).val(); // Obtém o valor do tema selecionado

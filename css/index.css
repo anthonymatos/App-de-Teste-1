@@ -268,6 +268,12 @@ main > h2 a, main > h2 a:hover {
     color: var(--font-color-dark);
 }
 
+/* Tema vermelho */
+.red {
+    background: #690000;
+    color: rgb(255, 233, 233);
+}
+
 /* Estilos genéricos */
 .text-center {
     text-align: center;

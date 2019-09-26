@@ -42,7 +42,7 @@ var app = {
         $('main').attr('class', conf.get('tema'));
 
         // Executa tratamento de eventos
-        runApp();
+        runApp(); 
     }
 }
 
