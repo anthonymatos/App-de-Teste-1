@@ -2,7 +2,7 @@
 firebase.initializeApp(firebaseConfig);
 
 // Inicializa Firestore
-db = firebase.firestore();
+var db = firebase.firestore();
 
 // Provedores de autenticação
 var provider1 = new firebase.auth.GoogleAuthProvider();
