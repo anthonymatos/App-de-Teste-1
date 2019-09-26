@@ -1,5 +1,3 @@
-\
-
 // Mostra a barra superior
 $('header').slideDown('fast');
 
